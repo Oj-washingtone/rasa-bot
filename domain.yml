@@ -1,0 +1,44 @@
+version: "3.1"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+actions:
+  - action_fetch_service_providers
+
+slots:
+  service:
+    type: text
+    mappings:
+      - type: from_llm
+  location:
+    type: text
+    mappings:
+      - type: from_llm
+
+responses:
+  utter_ask_service:
+    - text: Which product or service would you wish i help you locate
+  
+  utter_ask_location:
+    - text: Where are you looking for {service} from.
+
+  utter_fetching_service:
+    - text: "Kindly wait while i find you a suitable provider"
+  utter_this_may_take_a_while:
+    - text: This may take a while please wait
+
+  utter_free_chitchat_response:
+    - text: "placeholder"
+      metadata:
+        rephrase: True
+        rephrase_prompt: |
+          The following is a conversation with an AI assistant built with Rasa.
+          The assistant can help the user transfer money.
+          The assistant is helpful, creative, clever, and very friendly.
+          The user is making small talk, and the assistant should respond, keeping things light.
+          Context / previous conversation with the user:
+          {{history}}
+          {{current_input}}
+          Suggested AI Response:

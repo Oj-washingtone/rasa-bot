@@ -1,0 +1,13 @@
+flows:
+  request_service:
+    description: Help user get the neerest service provider
+    steps:
+      - collect: service
+        description: the type of a service that a user wants, example plumber
+      - collect: location
+        description: the location where the user is looking for the service provider, example Nairobi
+      - action: utter_fetching_service
+      - action: action_fetch_service_providers
+
+
+

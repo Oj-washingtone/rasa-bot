@@ -1,0 +1,21 @@
+# Virtual environments
+.venv/
+venv/
+env/
+
+
+# Rasa 
+.rasa/
+
+# Rasa trained models
+models/
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.*
+
+# Pip files
+pip-log.txt
