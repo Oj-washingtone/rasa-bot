@@ -1,4 +1,10 @@
 flows:
+  pattern_greetings:
+    description: Handles greetings and introduces the platform
+    name: greetings
+    steps:
+      - action: utter_greetings
+
   request_service:
     description: Help user get the neerest service provider
     steps:
@@ -8,6 +14,13 @@ flows:
         description: the location where the user is looking for the service provider, example Nairobi
       - action: utter_fetching_service
       - action: action_fetch_service_providers
+
+  request_listing_service_procedure:
+    description: this explains to the user how they can get their services listed by linxs so that others can find them
+    steps:
+      - action: utter_list_service_procedure
+
+
 
 
 

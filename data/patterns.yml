@@ -10,4 +10,6 @@ flows:
     steps:
       - action: utter_free_chitchat_response
   
- 
+patterns:
+  - name: greet
+    pattern: (?i)\b(hi|hello|hey|greetings|good morning|good afternoon)\b

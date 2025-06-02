@@ -16,18 +16,47 @@ slots:
     type: text
     mappings:
       - type: from_llm
+  product:
+    type: text
+    mappings:
+      - type: from_llm
+      
+  product_specifications:
+    type: text
+    mappings: 
+      - type: from_llm
 
 responses:
   utter_ask_service:
-    - text: Which product or service would you wish i help you locate
+    - text: Which service or shop would you wish i help you locate
   
   utter_ask_location:
     - text: Where are you looking for {service} from.
 
   utter_fetching_service:
-    - text: "Kindly wait while i find you a suitable provider"
+    - text: Kindly wait while i find you a suitable provider
   utter_this_may_take_a_while:
-    - text: This may take a while please wait
+    - text: This may take a while please waits
+  
+  utter_list_service_procedure:
+    - text: To list your service on Linxs, visit https://linxs.co.ke.
+
+  # utter_ask_product:
+  #   - text: Which product can i help you find
+  # utter_ask_product_specifications:
+  #   - text: re there any specific details i should consider while finding you a {product}, like price range or color ?
+  # utter_fetching_products:
+  #   - text: THis feature is comming soon
+
+  utter_greetings:
+    - text: "Hi! I'm here to help you find the service or product you need."
+      metadata:
+        rephrase: True
+        rephrase_prompt: |
+          The following is a conversation with an AI assistant that helps users find service providers and products. The assistant is clear, friendly, and professional. The goal is to rephrase the original response to make it sound more natural while keeping the original intent.
+          Original Response:
+          "{{response}}"
+          Rephrased Response:
 
   utter_free_chitchat_response:
     - text: "placeholder"
@@ -35,9 +64,11 @@ responses:
         rephrase: True
         rephrase_prompt: |
           The following is a conversation with an AI assistant built with Rasa.
-          The assistant can help the user transfer money.
-          The assistant is helpful, creative, clever, and very friendly.
-          The user is making small talk, and the assistant should respond, keeping things light.
+          The name of the bot is linxs.
+          The assistant (linxs) helps users find services or products such as tutors, electricians e.t.c, or local businesses.
+          The bot is not able to respond to off-topic conversations that do not include finding services and products
+          The assistant is helpful, informative, friendly, and focused on connecting users with the right service providers.
+          The user is making small talk, and the assistant should respond briefly and then guide the conversation back to finding a service or product.
           Context / previous conversation with the user:
           {{history}}
           {{current_input}}
